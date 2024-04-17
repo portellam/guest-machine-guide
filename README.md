@@ -1,14 +1,14 @@
 # Guest Machine Guide
 Guide for setup of a guest Libvirt/QEMU Virtual Machine (VM). Includes general overview and references, and optimizations for Windows guests and hardware-passthrough (VFIO).
 
+**[View master branch...](https://github.com/portellam/guest-machine-guide/tree/master)**
+
 #### Related Projects:
 **[Auto Xorg](https://github.com/portellam/auto-Xorg) | [Deploy VFIO](https://github.com/portellam/deploy-vfio) | [Generate Evdev](https://github.com/portellam/generate-evdev)  | [Libvirt Hooks](https://github.com/portellam/deploy-vfio) | [Power State Virtual Machine Manager](https://github.com/portellam/deploy-vfio)**
 
 ## About
 The purpose of this document is to inform a new or returning user how to optimize a Guest machine right n
 this moment, without demanding greater research and time.
-
-**[View master branch...](https://github.com/portellam/guest-machine-guide/tree/master)**
 
 ## Table of Contents
 - [About](#1-about)
