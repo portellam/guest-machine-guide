@@ -4,10 +4,10 @@ Guide for setup of a guest Libvirt/QEMU Virtual Machine (VM). Includes general o
 **[View master branch...](https://github.com/portellam/guest-machine-guide/tree/master)**
 
 #### Related Projects:
-**[Auto X.Org](https://github.com/portellam/auto-x.org) | [Deploy VFIO](https://github.com/portellam/deploy-vfio) | [Generate Evdev](https://github.com/portellam/generate-evdev)  | [Libvirt Hooks](https://github.com/portellam/libvirt-hooks) | [Power State VirtManager](https://github.com/portellam/powerstate-virtmanager)**
+**[Auto X.Org](https://github.com/portellam/auto-xorg) | [Deploy VFIO](https://github.com/portellam/deploy-vfio) | [Generate Evdev](https://github.com/portellam/generate-evdev)  | [Libvirt Hooks](https://github.com/portellam/libvirt-hooks) | [Power State VirtManager](https://github.com/portellam/powerstate-virtmanager)**
 
 ## Table of Contents
-- [About](#1-about)
+- [About](#about)
 - [Host Optimizations](#host-optimizations)
 - [Guest Optimizations](#guest-optimizations)
 - [Guest XML Layout](#guest-xml-layout)
