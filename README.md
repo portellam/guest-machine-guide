@@ -18,10 +18,10 @@ this moment, without demanding greater research and time.
   - [1. Syntax](#1-syntax)
   - [2. First Lines in XML](#2-first-lines-in-xml)
   - [3. Memory](#3-memory)
-  - [4. CPU Topology (1/2)](#4-cpu-topology-12)
+  - [4. CPU Topology (1 / 2)](#4-cpu-topology-12)
   - [5. System Information Spoofing](#5-system-information-spoofing)
   - [6. Features](#6-features)
-  - [7. CPU Topology (2/2)](#7-cpu-topology-22)
+  - [7. CPU Topology (2 / 2)](#7-cpu-topology-22)
   - [8. Power Management](#8-power-management)
   - [9. Devices](#9-devices)
   - [10. QEMU Command Line](#10-qemu-command-line)
@@ -139,7 +139,7 @@ To gather information of system memory, execute: `free --kibi --total --wide`
 - Dynamic *Host* memory page allocation is more flexible, but will require defragmentation before use as *Guest* memory pages (before a Guest machine may start).
 - **Warning:** If the specified *Guest* memory pages exceeds the allocated *Host* memory pages, then the Guest machine will fail to start.
 
-### 4. CPU Topology (1/2)
+### 4. CPU Topology (1 / 2)
 To gather information about your CPU, execute: `lscpu | grep --extended-regexp --ignore-case "per core|per socket|socket"`
 
 | `<vcpu>` Tag | Attribute   | Value      | Description                                                     |
@@ -249,7 +249,7 @@ TODO: make the following inline XML into chart, describe each feature.
   </features>
 ```
 
-### 7. CPU Topology (2/2)
+### 7. CPU Topology (2 / 2)
 To gather information about your CPU, execute: `lscpu | grep --extended-regexp --ignore-case "per core|per socket|socket"`
 
 ##### 7.a. Example output:
