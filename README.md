@@ -3,7 +3,7 @@ Guide for setup of a Libvirt/QEMU Virtual Machine (VM). Includes general overvie
 
 [deploy-VFIO](https://github.com/portellam/deploy-vfio) **|** [auto-Xorg](https://github.com/portellam/auto-Xorg) **|**[generate-evdev](https://github.com/portellam/generate-evdev) **|** [libvirt-hooks](https://github.com/portellam/deploy-vfio) **|** [pwrstat-virtman](https://github.com/portellam/deploy-vfio)
 
-**[Switch to develop branch... ⎋](https://github.com/portellam/guest-machine-guide/tree/develop)**
+**[View develop branch...](https://github.com/portellam/guest-machine-guide/tree/develop)**
 
 ## Table of Contents
 - [1. About](#1-about)
