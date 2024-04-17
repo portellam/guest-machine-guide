@@ -6,11 +6,8 @@ Guide for setup of a Libvirt/QEMU Virtual Machine (VM). Includes general overvie
 #### Related Projects:
 **[Deploy VFIO](https://github.com/portellam/deploy-vfio) | [Auto Xorg](https://github.com/portellam/auto-Xorg) | [Generate Evdev](https://github.com/portellam/generate-evdev)  | [Libvirt Hooks](https://github.com/portellam/deploy-vfio) | [Power State Virtual Machine Manager](https://github.com/portellam/deploy-vfio)**
 
-#### Relevant Articles:
-##### What is [VFIO?](#VFIO)
-##### [VFIO article (Linux kernel documentation)](https://www.kernel.org/doc/html/latest/driver-api/vfio.html)
-##### [VFIO forum (Reddit)](https://old.reddit.com/r/VFIO)
-##### [PCI Passthrough guide (ArchLinux Wiki)](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF)
+#### VFIO Links:
+**What is [VFIO?](#VFIO) | [VFIO Article](https://www.kernel.org/doc/html/latest/driver-api/vfio.html) | [VFIO Forum](https://old.reddit.com/r/VFIO) | [PCI Passthrough Guide](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF)**
 
 ## Table of Contents
 - [1. About](#1-about)
