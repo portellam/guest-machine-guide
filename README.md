@@ -7,7 +7,6 @@ Guide for setup of a Libvirt/QEMU Virtual Machine (VM). Includes general overvie
 
 ## Table of Contents
 - [1. About](#1-about)
-- [2. Related Projects](#2-related-projects)
 
 ## 1. About
 The purpose of this document is to inform a new or returning user how to optimize a Guest machine right n
