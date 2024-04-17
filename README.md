@@ -1,10 +1,9 @@
 # Guest Machine Guide
+[License](LICENSE.md)
+
 [deploy-VFIO](https://github.com/portellam/deploy-vfio) | [auto-Xorg](https://github.com/portellam/auto-Xorg) | [generate-evdev](https://github.com/portellam/generate-evdev) | [libvirt-hooks](https://github.com/portellam/deploy-vfio) | [pwrstat-virtman](https://github.com/portellam/deploy-vfio)
 
 **[Switch to develop branch... ⎋](https://github.com/portellam/guest-machine-guide/tree/develop)**
-
-## Directory
-[License](LICENSE.md)
 
 ## Table of Contents
 - [1. About](#1-about)
