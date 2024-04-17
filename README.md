@@ -1,17 +1,19 @@
 # Guest Machine Guide
+**[Switch to develop branch... ⎋](https://github.com/portellam/guest-machine-guide/tree/develop)**
 
 ## Directory
 - [License](LICENSE.md)
+
+## Table of Contents
+- [1. About](#1-about)
+- [2. Related Projects](#2-related-projects)
+
+## 2. Related Projects
 - [deploy-VFIO](https://github.com/portellam/deploy-vfio)
 - [auto-Xorg](https://github.com/portellam/auto-Xorg)
 - [generate-evdev](https://github.com/portellam/generate-evdev)
 - [libvirt-hooks](https://github.com/portellam/deploy-vfio)
 - [pwrstat-virtman](https://github.com/portellam/deploy-vfio)
-
-**[Switch to develop branch... ⎋](https://github.com/portellam/guest-machine-guide/tree/develop)**
-
-## Table of Contents
-- [1. About](#1-about)
 
 ## 1. About
 The purpose of this document is to inform a new or returning user how to optimize a Guest machine right n
@@ -23,6 +25,7 @@ Copy and paste what you need from here and/or any example XML files, to your Gue
 
 ## TODO:
 - [x] add About.
+- [ ] add Links to related projects.
 - [ ] add Documentation for
   - [ ] guest XML layout
     - [ ] name syntax
