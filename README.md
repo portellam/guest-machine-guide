@@ -8,13 +8,6 @@
 - [1. About](#1-about)
 - [2. Related Projects](#2-related-projects)
 
-## 2. Related Projects
-- [deploy-VFIO](https://github.com/portellam/deploy-vfio)
-- [auto-Xorg](https://github.com/portellam/auto-Xorg)
-- [generate-evdev](https://github.com/portellam/generate-evdev)
-- [libvirt-hooks](https://github.com/portellam/deploy-vfio)
-- [pwrstat-virtman](https://github.com/portellam/deploy-vfio)
-
 ## 1. About
 The purpose of this document is to inform a new or returning user how to optimize a Guest machine right n
 this moment, without demanding greater research and time.
@@ -22,6 +15,13 @@ this moment, without demanding greater research and time.
 This document does not serve to replace existing knowledge-bases such as the [ArchLinux Wiki](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF) the [VFIO forum (Reddit)](https://old.reddit.com/r/vfio). If you have any unexpected questions, wish to fact-check, or want to expand your knowledge, then please visit these places!
 
 Copy and paste what you need from here and/or any example XML files, to your Guest XML file.
+
+## 2. Related Projects
+- [deploy-VFIO](https://github.com/portellam/deploy-vfio)
+- [auto-Xorg](https://github.com/portellam/auto-Xorg)
+- [generate-evdev](https://github.com/portellam/generate-evdev)
+- [libvirt-hooks](https://github.com/portellam/deploy-vfio)
+- [pwrstat-virtman](https://github.com/portellam/deploy-vfio)
 
 ## TODO:
 - [x] add About.
