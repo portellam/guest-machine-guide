@@ -1,7 +1,7 @@
 # Guest Machine Guide
-[License](LICENSE.md)
+Guide for setup of a Libvirt/QEMU Virtual Machine (VM). Includes general overview and references, and optimizations for Windows VMs and hardware-passthrough (VFIO).
 
-[deploy-VFIO](https://github.com/portellam/deploy-vfio) | [auto-Xorg](https://github.com/portellam/auto-Xorg) | [generate-evdev](https://github.com/portellam/generate-evdev) | [libvirt-hooks](https://github.com/portellam/deploy-vfio) | [pwrstat-virtman](https://github.com/portellam/deploy-vfio)
+[deploy-VFIO](https://github.com/portellam/deploy-vfio) **|** [auto-Xorg](https://github.com/portellam/auto-Xorg) **|**[generate-evdev](https://github.com/portellam/generate-evdev) **|** [libvirt-hooks](https://github.com/portellam/deploy-vfio) **|** [pwrstat-virtman](https://github.com/portellam/deploy-vfio)
 
 **[Switch to develop branch... ⎋](https://github.com/portellam/guest-machine-guide/tree/develop)**
 
