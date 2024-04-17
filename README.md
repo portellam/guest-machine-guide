@@ -16,16 +16,16 @@ this moment, without demanding greater research and time.
 - [Guest Optimizations](#guest-optimizations)
 - [Guest XML Layout](#guest-xml-layout)
   - [1. Syntax](#1-syntax)
-  - [2. First lines in XML](#2-first-lines-in-xml)
+  - [2. First Lines in XML](#2-first-lines-in-xml)
   - [3. Memory](#3-memory)
-  - [4. CPU topology (1/2)](#4-cpu-topology-12)
-  - [5. System information spoofing](#5-system-information-spoofing)
+  - [4. CPU Topology (1/2)](#4-cpu-topology-12)
+  - [5. System Information Spoofing](#5-system-information-spoofing)
   - [6. Features](#6-features)
-  - [7. CPU topology (2/2)](#7-cpu-topology-22)
+  - [7. CPU Topology (2/2)](#7-cpu-topology-22)
   - [8. Power Management](#8-power-management)
   - [9. Devices](#9-devices)
-  - [10. QEMU command line](#10-qemu-overrides)
-  - [11. QEMU overrides](#11-qemu-overrides)
+  - [10. QEMU Command Line](#10-qemu-command-line)
+  - [11. QEMU Overrides](#11-qemu-overrides)
 - [Benchmarking Guest Performance](#benchmarking-guest-performance)
 - [References](#references)
 
@@ -53,7 +53,7 @@ Below is an *incomplete* layout for building a Guest machine. The lines include 
 </parent_tag_name>
 ```
 
-### 2. First lines in XML
+### 2. First Lines in XML
 
 | `<domain>` Tag     | Attribute    | Value                                          | Description                                        |
 | ------------------ | ------------ | ---------------------------------------------- | -------------------------------------------------- |
@@ -139,7 +139,7 @@ To gather information of system memory, execute: `free --kibi --total --wide`
 - Dynamic *Host* memory page allocation is more flexible, but will require defragmentation before use as *Guest* memory pages (before a Guest machine may start).
 - **Warning:** If the specified *Guest* memory pages exceeds the allocated *Host* memory pages, then the Guest machine will fail to start.
 
-### 4. CPU topology (1/2)
+### 4. CPU Topology (1/2)
 To gather information about your CPU, execute: `lscpu | grep --extended-regexp --ignore-case "per core|per socket|socket"`
 
 | `<vcpu>` Tag | Attribute   | Value      | Description                                                     |
@@ -188,7 +188,7 @@ To gather information about your CPU, execute: `lscpu | grep --extended-regexp -
   </cputune>
 ```
 
-### 5. System information spoofing
+### 5. System Information Spoofing
 To gather information about your BIOS, execute:
 
 &ensp;`sudo dmidecode --type bios | grep --extended-regexp --ignore-case "vendor|version|release date"`
@@ -249,7 +249,7 @@ TODO: make the following inline XML into chart, describe each feature.
   </features>
 ```
 
-### 7. CPU topology (2/2)
+### 7. CPU Topology (2/2)
 To gather information about your CPU, execute: `lscpu | grep --extended-regexp --ignore-case "per core|per socket|socket"`
 
 ##### 7.a. Example output:
@@ -308,7 +308,7 @@ TODO: make the following inline XML into chart, describe each feature???
   </devices>
 ```
 
-#### 9.a. Emulated
+#### 9.a. Emulated Devices
 
 TODO: make this inline XML?
 - QEMU
@@ -318,7 +318,7 @@ TODO: make this inline XML?
 
 lorem ipsum
 
-#### 9.b. Real/Passthrough
+#### 9.b. Real/Passthrough Hardware Devices
 TODO: make this inline XML?
 
   - AMD
@@ -334,14 +334,14 @@ TODO: make this inline XML?
       - Boot bug (Solution: Use known-good copy of given GPU's video BIOS or VBIOS).
       - TODO: add references, programs used, instructions, and XML here.
 
-#### 9.c. Memory devices
+#### 9.c. Memory Devices
 
 TODO: make this inline XML?
   - Looking Glass
   - Scream
   - ???
 
-### 10. QEMU command line
+### 10. QEMU Command Line
 
 TODO: make the following inline XML into chart, describe each feature.
   - Evdev
@@ -350,7 +350,7 @@ TODO: make the following inline XML into chart, describe each feature.
   <qemu:commandline>...</qemu:commandline>  <!-- Add Evdev here -->
 ```
 
-### 11. QEMU overrides
+### 11. QEMU Overrides
 
 TODO: make the following inline XML into chart, describe each feature.
 
@@ -386,7 +386,7 @@ TODO: add here.
 #### 4. Hugepages
 &ensp;<sub>Huge memory pages **| [Arch Wiki](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Huge_memory_pages) | [Debian Wiki](https://wiki.debian.org/Hugepages)**</sub>
 
-### 5. Memory backing
+#### 5. Memory backing
 &ensp;<sub>Memory Tuning on Virtual Machines **| [RedHat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_tuning_and_optimization_guide/sect-virtualization_tuning_optimization_guide-memory-tuning)**</sub>
 
 ## TODO:
