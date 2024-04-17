@@ -6,10 +6,6 @@ Guide for setup of a guest Libvirt/QEMU Virtual Machine (VM). Includes general o
 #### Related Projects:
 **[Auto Xorg](https://github.com/portellam/auto-Xorg) | [Deploy VFIO](https://github.com/portellam/deploy-vfio) | [Generate Evdev](https://github.com/portellam/generate-evdev)  | [Libvirt Hooks](https://github.com/portellam/libvirt-hooks) | [Power State VirtManager](https://github.com/portellam/powerstate-virtmanager)**
 
-## About
-The purpose of this document is to inform a new or returning user how to optimize a Guest machine right n
-this moment, without demanding greater research and time.
-
 ## Table of Contents
 - [About](#1-about)
 - [Host Optimizations](#host-optimizations)
@@ -30,10 +26,9 @@ this moment, without demanding greater research and time.
 - [References](#references)
 
 ## About
-The purpose of this document is to inform a new or returning user how to optimize a Guest machine right n
-this moment, without demanding greater research and time.
+The purpose of this document is to inform a new or returning user how to optimize a Guest machine, without demanding greater research and time.
 
-This document does not serve to replace existing knowledge-bases such as the [ArchLinux Wiki](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF) the [VFIO forum (Reddit)](https://old.reddit.com/r/vfio). If you have any unexpected questions, wish to fact-check, or want to expand your knowledge, then please visit these places!
+This document does not serve to replace existing knowledge-bases. If you have any unexpected questions, wish to fact-check, or want to expand your knowledge, then please visit these places!
 
 Copy and paste what you need from here and/or any example XML files, to your Guest XML file.
 
