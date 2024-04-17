@@ -57,10 +57,10 @@ Below is an *incomplete* layout for building a Guest machine. The lines include 
 
 **\*** Optional, if Host machine contains two (2) or more video devices (GPU/VGA).
   - Example systems and names:
-    - Modern gaming machine:&ensp;&ensp;&ensp;&ensp;&ensp;`game_nvidia_win10_x64_q35_uefi_6c12t`
+    - Modern gaming machine:&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;`game_nvidia_win10_x64_q35_uefi_6c12t`
     - Older 2000s gaming machine:&ensp;`retro_amd_winxp_x86_i440fx_bios_2c4t`
     - Retro 1990s gaming machine:&ensp;`retro_3dfx_win98_x86_i440fx_bios_1c1t`
-    - Intel MacOS workstation:&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;`work_macos_amd_x64_q35_uefi_6c12t`
+    - Intel MacOS workstation:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`work_macos_amd_x64_q35_uefi_6c12t`
   - Purpose of the Guest (and suggested names):
     - Gaming PC:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`game`
     - Legacy/Retro PC:&ensp;`retro`
@@ -68,15 +68,15 @@ Below is an *incomplete* layout for building a Guest machine. The lines include 
     - Workstation PC:&ensp;&ensp;`work`
     - etc.
   - Vendor name of the Video device:
-    - AMD:&ensp;&ensp;&ensp;&ensp;&ensp;`amd`
-    - Intel:&ensp;&ensp;&ensp;&ensp;&ensp;`intel`
-    - NVIDIA:&ensp;&ensp;&ensp;`nvidia`
-    - emulated:&ensp;`emugpu`
+    - AMD:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`amd`
+    - Intel:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`intel`
+    - NVIDIA:&ensp;&ensp;&ensp;&nbsp;`nvidia`
+    - emulated:&ensp;`virtgpu`
     - non-mainstream or legacy:
       - 3DFX:&ensp;`3dfx`.
   - Short name of the Operating System (OS):
-    - Apple Macintosh:&ensp;&ensp;&ensp;&nbsp;`macos`
-    - Linux:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`arch`, `debian`, `redhat`, `ubuntu`
+    - Apple Macintosh:&ensp;&ensp;&ensp;`macos`
+    - Linux:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;`arch`, `debian`, `redhat`, `ubuntu`
     - Microsoft Windows:&ensp;`win98`, `winxp`, `win10`
     - etc.
   - Short name of the CPU architecture<sup>[ref](#cpu-architecture)</sup>:
@@ -358,35 +358,31 @@ TODO: add here.
 
 ## 6. References
 #### 6.1. Chipset
-&ensp;<sub>I440FX | **[Wikipedia](https://en.wikipedia.org/wiki/Intel_440FX)**</sub>
+&ensp;<sub>I440FX **|** **[Wikipedia](https://en.wikipedia.org/wiki/Intel_440FX)**</sub> **|** **[QEMU documentation](https://www.qemu.org/docs/master/system/i386/pc.html)**</sub>
 
-&ensp;<sub>I440FX | **[QEMU documentation](https://www.qemu.org/docs/master/system/i386/pc.html)**</sub>
+&ensp;<sub>PCI vs PCIe **|** **[RedHat documentation](https://wiki.qemu.org/images/f/f6/PCIvsPCIe.pdf)**</sub>
 
-&ensp;<sub>PCI vs PCIe | **[RedHat documentation](https://wiki.qemu.org/images/f/f6/PCIvsPCIe.pdf)**</sub>
-
-&ensp;<sub>Q35 | **[RedHat documentation](https://wiki.qemu.org/images/4/4e/Q35.pdf)**</sub>
+&ensp;<sub>Q35 **|** **[RedHat documentation](https://wiki.qemu.org/images/4/4e/Q35.pdf)**</sub>
 
 #### 6.2. CPU architecture
-&ensp;<sub>AArch32 | **[Wikipedia](https://en.wikipedia.org/wiki/ARM_architecture_family#AArch32)**</sub>
+&ensp;<sub>AArch32 **|** **[Wikipedia](https://en.wikipedia.org/wiki/ARM_architecture_family#AArch32)**</sub>
 
-&ensp;<sub>AArch64 | **[Wikipedia](https://en.wikipedia.org/wiki/AArch64)**</sub>
+&ensp;<sub>AArch64 **|** **[Wikipedia](https://en.wikipedia.org/wiki/AArch64)**</sub>
 
-&ensp;<sub>x86 | **[Wikipedia](https://en.wikipedia.org/wiki/X86)**</sub>
+&ensp;<sub>x86 **|** **[Wikipedia](https://en.wikipedia.org/wiki/X86)**</sub>
 
-&ensp;<sub>x64 | **[Wikipedia](https://en.wikipedia.org/wiki/X64)**</sub>
+&ensp;<sub>x64 **|** **[Wikipedia](https://en.wikipedia.org/wiki/X64)**</sub>
 
 #### 6.3. Firmware
-&ensp;<sub>BIOS | **[Wikipedia](https://en.wikipedia.org/wiki/BIOS)**</sub>
+&ensp;<sub>BIOS **|** **[Wikipedia](https://en.wikipedia.org/wiki/BIOS)**</sub>
 
-&ensp;<sub>UEFI | **[Wikipedia](https://en.wikipedia.org/wiki/UEFI)**</sub>
+&ensp;<sub>UEFI **|** **[Wikipedia](https://en.wikipedia.org/wiki/UEFI)**</sub>
 
 #### 6.4. Hugepages
-&ensp;<sub>Huge memory pages | **[Arch Wiki](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Huge_memory_pages)**</sub>
-
-&ensp;<sub>Huge pages | **[Debian Wiki](https://wiki.debian.org/Hugepages)**</sub>
+&ensp;<sub>Huge memory pages **|** **[Arch Wiki](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Huge_memory_pages)**</sub> **|** **[Debian Wiki](https://wiki.debian.org/Hugepages)**</sub>
 
 ### 6.5. Memory backing
-&ensp;<sub>Memory Tuning on Virtual Machines | **[RedHat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_tuning_and_optimization_guide/sect-virtualization_tuning_optimization_guide-memory-tuning)**</sub>
+&ensp;<sub>Memory Tuning on Virtual Machines **|** **[RedHat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_tuning_and_optimization_guide/sect-virtualization_tuning_optimization_guide-memory-tuning)**</sub>
 
 ## TODO:
 - [x] add About.
