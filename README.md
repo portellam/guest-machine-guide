@@ -358,7 +358,7 @@ TODO: add here.
 
 ## 6. References
 #### 6.1. Chipset
-&ensp;<sub>I440FX **|** **[Wikipedia](https://en.wikipedia.org/wiki/Intel_440FX)**</sub> **|** **[QEMU documentation](https://www.qemu.org/docs/master/system/i386/pc.html)**</sub>
+&ensp;<sub>I440FX **| [Wikipedia](https://en.wikipedia.org/wiki/Intel_440FX) | [QEMU documentation](https://www.qemu.org/docs/master/system/i386/pc.html)**</sub>
 
 &ensp;<sub>PCI vs PCIe **|** **[RedHat documentation](https://wiki.qemu.org/images/f/f6/PCIvsPCIe.pdf)**</sub>
 
@@ -379,10 +379,10 @@ TODO: add here.
 &ensp;<sub>UEFI **|** **[Wikipedia](https://en.wikipedia.org/wiki/UEFI)**</sub>
 
 #### 6.4. Hugepages
-&ensp;<sub>Huge memory pages **|** **[Arch Wiki](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Huge_memory_pages)**</sub> **|** **[Debian Wiki](https://wiki.debian.org/Hugepages)**</sub>
+&ensp;<sub>Huge memory pages **| [Arch Wiki](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Huge_memory_pages) | [Debian Wiki](https://wiki.debian.org/Hugepages)**</sub>
 
 ### 6.5. Memory backing
-&ensp;<sub>Memory Tuning on Virtual Machines **|** **[RedHat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_tuning_and_optimization_guide/sect-virtualization_tuning_optimization_guide-memory-tuning)**</sub>
+&ensp;<sub>Memory Tuning on Virtual Machines **| [RedHat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_tuning_and_optimization_guide/sect-virtualization_tuning_optimization_guide-memory-tuning)**</sub>
 
 ## TODO:
 - [x] add About.
