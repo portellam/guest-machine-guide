@@ -10,6 +10,9 @@ Guide for setup of a guest Libvirt/QEMU Virtual Machine (VM). Includes general o
 The purpose of this document is to inform a new or returning user how to optimize a Guest machine right n
 this moment, without demanding greater research and time.
 
+#### Related Projects:
+**[Auto Xorg](https://github.com/portellam/auto-Xorg) | [Deploy VFIO](https://github.com/portellam/deploy-vfio) | [Generate Evdev](https://github.com/portellam/generate-evdev)  | [Libvirt Hooks](https://github.com/portellam/deploy-vfio) | [Power State Virtual Machine Manager](https://github.com/portellam/deploy-vfio)**
+
 ## Table of Contents
 - [About](#1-about)
 - [Host Optimizations](#host-optimizations)
