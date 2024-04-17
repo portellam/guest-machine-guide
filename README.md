@@ -3,7 +3,8 @@ Guide for setup of a Libvirt/QEMU Virtual Machine (VM). Includes general overvie
 
 **[View master branch...](https://github.com/portellam/guest-machine-guide/tree/master)**
 
-**Related Projects: [Deploy VFIO](https://github.com/portellam/deploy-vfio) | [Auto Xorg](https://github.com/portellam/auto-Xorg) | [Generate Evdev](https://github.com/portellam/generate-evdev)  | [Libvirt Hooks](https://github.com/portellam/deploy-vfio) | [Power State Virtual Machine Manager](https://github.com/portellam/deploy-vfio)**
+#### Related Projects:
+**[Deploy VFIO](https://github.com/portellam/deploy-vfio) | [Auto Xorg](https://github.com/portellam/auto-Xorg) | [Generate Evdev](https://github.com/portellam/generate-evdev)  | [Libvirt Hooks](https://github.com/portellam/deploy-vfio) | [Power State Virtual Machine Manager](https://github.com/portellam/deploy-vfio)**
 
 #### Relevant Articles:
 ##### What is [VFIO?](#VFIO)
