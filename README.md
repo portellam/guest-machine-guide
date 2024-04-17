@@ -1,8 +1,9 @@
 # Guest Machine Guide
+[deploy-VFIO](https://github.com/portellam/deploy-vfio) | [auto-Xorg](https://github.com/portellam/auto-Xorg) | [generate-evdev](https://github.com/portellam/generate-evdev) | [libvirt-hooks](https://github.com/portellam/deploy-vfio) | [pwrstat-virtman](https://github.com/portellam/deploy-vfio)
 **[Switch to develop branch... ⎋](https://github.com/portellam/guest-machine-guide/tree/develop)**
 
 ## Directory
-- [License](LICENSE.md)
+[License](LICENSE.md)
 
 ## Table of Contents
 - [1. About](#1-about)
@@ -16,12 +17,8 @@ This document does not serve to replace existing knowledge-bases such as the [Ar
 
 Copy and paste what you need from here and/or any example XML files, to your Guest XML file.
 
-## 2. Related Projects
-- [deploy-VFIO](https://github.com/portellam/deploy-vfio) | [auto-Xorg](https://github.com/portellam/auto-Xorg) | [generate-evdev](https://github.com/portellam/generate-evdev) | [libvirt-hooks](https://github.com/portellam/deploy-vfio) | [pwrstat-virtman](https://github.com/portellam/deploy-vfio)
-
 ## TODO:
 - [x] add About.
-- [ ] add Links to related projects.
 - [ ] add Documentation for
   - [ ] guest XML layout
     - [ ] name syntax
