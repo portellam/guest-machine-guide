@@ -7,7 +7,7 @@ Guide for setup of a guest Libvirt/QEMU Virtual Machine (VM). Includes general o
 **[Auto X.Org](https://github.com/portellam/auto-xorg) | [Deploy VFIO](https://github.com/portellam/deploy-vfio) | [Generate Evdev](https://github.com/portellam/generate-evdev)  | [Libvirt Hooks](https://github.com/portellam/libvirt-hooks) | [Power State Virtual Machine Manager](https://github.com/portellam/powerstate-virtmanager)**
 
 ## Table of Contents
-- [About](#about)
+- [Why?](#why)
 - [Host Optimizations](#host-optimizations)
 - [Guest Optimizations](#guest-optimizations)
 - [Guest XML Layout](#guest-xml-layout)
@@ -26,30 +26,31 @@ Guide for setup of a guest Libvirt/QEMU Virtual Machine (VM). Includes general o
 - [References](#references)
 - [Contact](#contact)
 
-## About
+## Contents
+### Why?
 The purpose of this document is to inform a new or returning user how to optimize a Guest machine, without demanding greater research and time.
 
 This document does not serve to replace existing knowledge-bases. If you have any unexpected questions, wish to fact-check, or want to expand your knowledge, then please visit these places!
 
 Copy and paste what you need from here and/or any example XML files, to your Guest XML file.
 
-## Host Optimizations
+### Host Optimizations
 TODO: add here.
 
-## Guest Optimizations
+### Guest Optimizations
 TODO: add here.
 
-## Guest XML Layout
+### Guest XML Layout
 Below is an *incomplete* layout for building a Guest machine. The lines include additional features, of which are absent when creating a Guest XML (with the `virsh` CLI command or `virt-manager` GUI application).
 
-### 1. Syntax
+#### 1. Syntax
 ```xml
 <parent_tag_name attribute_name="attribute_value">
   <child_tag_name>child_tag_value</child_tag_name>
 </parent_tag_name>
 ```
 
-### 2. First Lines in XML
+#### 2. First Lines in XML
 
 | `<domain>` Tag     | Attribute    | Value                                          | Description                                        |
 | ------------------ | ------------ | ---------------------------------------------- | -------------------------------------------------- |
@@ -57,7 +58,7 @@ Below is an *incomplete* layout for building a Guest machine. The lines include 
 |                    | `type`       | `"kvm"`                                        | Enable QEMU [command lines](#qemu-command-line) and [overrides](#qemu-overrides).           |
 | `<name/>`[<sup>1</sup>](#21a-name-best-practice)          | none         | text                                           | Name of the Guest.                                 |
 
-#### 2.a. `<name/>` Best practice:
+##### 2.a. `<name/>` Best practice:
 **Note:** The following formatting examples are a personal preference of the Author.
 
 **Format:** `purpose`**_**`vendor`\***_**`operating system`**_**`architecture`**_**`chipset`**_**`firmware`**_**`topology`
@@ -109,7 +110,7 @@ Below is an *incomplete* layout for building a Guest machine. The lines include 
     - Given the amount of physical cores (example: 4).
     - Given the amount of logical threads per core (2 * 4 = 8).
 
-### 3. Memory
+#### 3. Memory
 To gather information of system memory, execute: `free --kibi --total --wide`
 
 | `<memory>` Tag | Attribute | Value    | Description                                                       |
@@ -129,13 +130,13 @@ To gather information of system memory, execute: `free --kibi --total --wide`
 | `<hugepages/>`[<sup>1</sup>](#1-hugepages)       | none      | none        | Enable Huge memory pages.                                         |
 | `<nosharepages/>`     | none      | none        | Prevents the Host from merging the same memory used among Guests. |
 
-###### 3.a. `<hugepages/>`
+##### 3.a. `<hugepages/>`
 - Static allocation of *Host* memory pages into *Guest* memory pages.
 - **Huge:** Memory page size greater than 4K bytes (2M or 1G bytes). The greater the size, the lower the Host overhead.
 - Dynamic *Host* memory page allocation is more flexible, but will require defragmentation before use as *Guest* memory pages (before a Guest machine may start).
 - **Warning:** If the specified *Guest* memory pages exceeds the allocated *Host* memory pages, then the Guest machine will fail to start.
 
-### 4. CPU Topology (1 / 2)
+#### 4. CPU Topology (1 / 2)
 To gather information about your CPU, execute: `lscpu | grep --extended-regexp --ignore-case "per core|per socket|socket"`
 
 | `<vcpu>` Tag | Attribute   | Value      | Description                                                     |
@@ -155,17 +156,17 @@ To gather information about your CPU, execute: `lscpu | grep --extended-regexp -
 | `<iothreadpin>` | `iothread` | a number    | Guest IO: the Guest IO thread ID number.    |
 | `<iothreadpin>` | `cpuset`   | a number    | Guest IO: the Host thread ID numbers.[<sup>4</sup>](#4-iothreadpin-cpuset)      |
 
-###### 4.a. `<vcpupin vcpu>`
+##### 4.a. `<vcpupin vcpu>`
 - Count does not exceed value as defined in `<vcpu placement>`.
 
-###### 4.b. `<vcpupin cpuset>`
+##### 4.b. `<vcpupin cpuset>`
 - Threads should not overlap Host process threads.
 
-###### 4.c. `<emulatorpin cpuset>`
+##### 4.c. `<emulatorpin cpuset>`
 - Emulator threads handle Interrupt Requests for Guest hardware emulation.
 - Threads should not overlap Guest CPU threads as defined in `vcpupin cpuset`.
 
-###### 4.d. `<iothreadpin cpuset>`
+##### 4.d. `<iothreadpin cpuset>`
 - IO threads handle IO processes for Guest virtual drives/disks.
 - Threads should not overlap Guest CPU threads as defined in `vcpupin cpuset`.
 
@@ -184,7 +185,7 @@ To gather information about your CPU, execute: `lscpu | grep --extended-regexp -
   </cputune>
 ```
 
-### 5. System Information Spoofing
+#### 5. System Information Spoofing
 To gather information about your BIOS, execute:
 
 &ensp;`sudo dmidecode --type bios | grep --extended-regexp --ignore-case "vendor|version|release date"`
@@ -212,7 +213,7 @@ To gather information about your system, execute:
   </sysinfo>
 ```
 
-### 6. Features
+#### 6. Features
 
 TODO: make the following inline XML into chart, describe each feature.
 
@@ -245,7 +246,7 @@ TODO: make the following inline XML into chart, describe each feature.
   </features>
 ```
 
-### 7. CPU Topology (2 / 2)
+#### 7. CPU Topology (2 / 2)
 To gather information about your CPU, execute: `lscpu | grep --extended-regexp --ignore-case "per core|per socket|socket"`
 
 ##### 7.a. Example output:
@@ -285,7 +286,7 @@ TODO: make the following inline XML into chart, describe each feature.
 |              | `present`    | `"yes"`              | TODO: add here.                                                 |
 |              | `mode`       | `"native"`           | TODO: add here.                                                 |
 
-### 8. Power Management
+#### 8. Power Management
 ```xml
   <!-- Power Management -->
   <pm>
@@ -294,7 +295,7 @@ TODO: make the following inline XML into chart, describe each feature.
   </pm>
 ```
 
-### 9. Devices
+#### 9. Devices
 
 TODO: make the following inline XML into chart, describe each feature???
 ```xml
@@ -304,7 +305,7 @@ TODO: make the following inline XML into chart, describe each feature???
   </devices>
 ```
 
-#### 9.a. Emulated Devices
+##### 9.a. Emulated Devices
 
 TODO: make this inline XML?
 - QEMU
@@ -314,7 +315,7 @@ TODO: make this inline XML?
 
 lorem ipsum
 
-#### 9.b. Real/Passthrough Hardware Devices
+##### 9.b. Real/Passthrough Hardware Devices
 TODO: make this inline XML?
 
   - AMD
@@ -330,14 +331,14 @@ TODO: make this inline XML?
       - Boot bug (Solution: Use known-good copy of given GPU's video BIOS or VBIOS).
       - TODO: add references, programs used, instructions, and XML here.
 
-#### 9.c. Memory Devices
+##### 9.c. Memory Devices
 
 TODO: make this inline XML?
   - Looking Glass
   - Scream
   - ???
 
-### 10. QEMU Command Line
+#### 10. QEMU Command Line
 
 TODO: make the following inline XML into chart, describe each feature.
   - Evdev
@@ -346,7 +347,7 @@ TODO: make the following inline XML into chart, describe each feature.
   <qemu:commandline>...</qemu:commandline>  <!-- Add Evdev here -->
 ```
 
-### 11. QEMU Overrides
+#### 11. QEMU Overrides
 
 TODO: make the following inline XML into chart, describe each feature.
 
@@ -354,10 +355,10 @@ TODO: make the following inline XML into chart, describe each feature.
   <qemu:override>...</qemu:override>
 ```
 
-## Benchmarking Guest Performance
+### Benchmarking Guest Performance
 TODO: add here.
 
-## References
+### References
 #### 1. Chipset
 &ensp;<sub>I440FX **| [Wikipedia](https://en.wikipedia.org/wiki/Intel_440FX) | [QEMU documentation](https://www.qemu.org/docs/master/system/i386/pc.html)**</sub>
 
