@@ -4,7 +4,7 @@ Guide for setup of a guest Libvirt/QEMU Virtual Machine (VM). Includes general o
 **[View develop branch...](https://github.com/portellam/guest-machine-guide/tree/develop)**
 
 #### Related Projects:
-**[Auto X.Org](https://github.com/portellam/auto-xorg) | [Deploy VFIO](https://github.com/portellam/deploy-vfio) | [Generate Evdev](https://github.com/portellam/generate-evdev)  | [Libvirt Hooks](https://github.com/portellam/libvirt-hooks) | [Power State VirtManager](https://github.com/portellam/powerstate-virtmanager)**
+**[Auto X.Org](https://github.com/portellam/auto-xorg) | [Deploy VFIO](https://github.com/portellam/deploy-vfio) | [Generate Evdev](https://github.com/portellam/generate-evdev)  | [Libvirt Hooks](https://github.com/portellam/libvirt-hooks) | [Power State Virtual Machine Manager](https://github.com/portellam/powerstate-virtmanager)**
 
 ## Table of Contents
 - [About](#about)
@@ -24,6 +24,7 @@ Guide for setup of a guest Libvirt/QEMU Virtual Machine (VM). Includes general o
   - [11. QEMU Overrides](#11-qemu-overrides)
 - [Benchmarking Guest Performance](#benchmarking-guest-performance)
 - [References](#references)
+- [Contact](#contact)
 
 ## About
 The purpose of this document is to inform a new or returning user how to optimize a Guest machine, without demanding greater research and time.
@@ -383,6 +384,9 @@ TODO: add here.
 
 #### 5. Memory backing
 &ensp;<sub>Memory Tuning on Virtual Machines **| [RedHat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_tuning_and_optimization_guide/sect-virtualization_tuning_optimization_guide-memory-tuning)**</sub>
+
+### Contact
+Do you need help? Find any information to be inadequate? Notice any dead links? Please contact by [raising an issue](https://github.com/portellam/guest-machine-guide/issues) with the project itself.
 
 ## TODO:
 - [x] add About.
