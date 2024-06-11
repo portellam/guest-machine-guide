@@ -2,10 +2,15 @@
 ### Status: Work-In-Progress
 Guide for setup of a guest Libvirt/QEMU Virtual Machine (VM). Includes general overview and references, and optimizations for Windows guests and hardware-passthrough (VFIO).
 
-**[View master branch...](https://github.com/portellam/guest-machine-guide/tree/master)**
+**[View master branch...](/../../../tree/master)**
 
-#### Related Projects:
-**[Auto X.Org](https://github.com/portellam/auto-xorg) | [Deploy VFIO](https://github.com/portellam/deploy-vfio) | [Generate Evdev](https://github.com/portellam/generate-evdev)  | [Libvirt Hooks](https://github.com/portellam/libvirt-hooks) | [Power State Virtual Machine Manager](https://github.com/portellam/powerstate-virtmanager)**
+### Related Projects
+**[Deploy VFIO](/../../../../deploy-VFIO)** | **[Auto X.Org](/../../../../auto-xorg)** | **[Generate Evdev](/../../../../generate-evdev)**
+
+[Guest Machine Guide](/../../../../guest-machine-guide) | **[Libvirt Hooks](/../../../../libvirt-hooks)** | **[Power State Virtual Machine Manager](/../../../../powerstate-virtmanager)**
+
+### Other Links:
+**What is [VFIO?](#VFIO) | [VFIO Article](https://www.kernel.org/doc/html/latest/driver-api/vfio.html) | [VFIO Forum](https://old.reddit.com/r/VFIO) | [PCI Passthrough Guide](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF)**
 
 ## Table of Contents
 - [Why?](#why)
