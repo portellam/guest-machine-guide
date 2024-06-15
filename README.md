@@ -15,17 +15,6 @@ Guide for setup of a guest Libvirt/QEMU Virtual Machine (VM). Includes general o
 - [Host Optimizations](#host-optimizations)
 - [Guest Optimizations](#guest-optimizations)
 - [Guest XML Layout](#guest-xml-layout)
-  - [1. Syntax](#1-syntax)
-  - [2. First Lines in XML](#2-first-lines-in-xml)
-  - [3. Memory](#3-memory)
-  - [4. CPU Topology (1 / 2)](#4-cpu-topology-1--2)
-  - [5. System Information Spoofing](#5-system-information-spoofing)
-  - [6. Features](#6-features)
-  - [7. CPU Topology (2 / 2)](#7-cpu-topology-2--2)
-  - [8. Power Management](#8-power-management)
-  - [9. Devices](#9-devices)
-  - [10. QEMU Command Line](#10-qemu-command-line)
-  - [11. QEMU Overrides](#11-qemu-overrides)
 - [Benchmarking Guest Performance](#benchmarking-guest-performance)
 - [Contact](#contact)
 - [References](#references)
@@ -104,8 +93,8 @@ Below is an *incomplete* layout for building a Guest machine. The lines include 
 
   - Purpose of the Guest (and suggested names):
     - Gaming PC:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`game`
-    - Legacy/Retro PC:&ensp;`retro`
-    - Server:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;`server`
+    - Legacy/Retro PC:&ensp;&nbsp;`retro`
+    - Server:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`server`
     - Workstation PC:&ensp;&ensp;`work`
     - etc.
 
@@ -120,7 +109,7 @@ Below is an *incomplete* layout for building a Guest machine. The lines include 
 
   - Short name of the Operating System (OS):
     - Apple Macintosh:&ensp;&ensp;&ensp;`macos`
-    - Linux:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;`arch`, `debian`, `redhat`, `ubuntu`
+    - Linux:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`arch`, `debian`, `redhat`, `ubuntu`
     - Microsoft Windows:&ensp;`win98`, `winxp`, `win10`
     - etc.
 
@@ -145,7 +134,7 @@ Below is an *incomplete* layout for building a Guest machine. The lines include 
 
   - Firmware:
     - BIOS:&ensp;[`bios`](#4)
-    - UEFI:&nbsp;&ensp;[`uefi`](#12)
+    - UEFI:&ensp;&nbsp;[`uefi`](#12)
 
   - Short-hand of Core topology:&ensp;`4c8t`
     - Given the amount of physical cores (example: 4).
