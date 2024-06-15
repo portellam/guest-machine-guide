@@ -2,13 +2,16 @@
 ### Status: Work-In-Progress
 Guide for setup of a guest Libvirt/QEMU Virtual Machine (VM). Includes general overview and references, and optimizations for Windows guests and hardware-passthrough (VFIO).
 
-**[View develop branch...](https://github.com/portellam/guest-machine-guide/tree/develop)**
+**Download the Latest Release:**&ensp;[Codeberg][codeberg-releases],
+[GitHub][github-releases]
 
-#### Related Projects:
-**[Auto X.Org](https://github.com/portellam/auto-xorg) | [Deploy VFIO](https://github.com/portellam/deploy-vfio) | [Generate Evdev](https://github.com/portellam/generate-evdev)  | [Libvirt Hooks](https://github.com/portellam/libvirt-hooks) | [Power State Virtual Machine Manager](https://github.com/portellam/powerstate-virtmanager)**
+[codeberg-releases]: https://codeberg.org/portellam/guest-machine-guide/releases/latest
+[github-releases]:   https://github.com/portellam/guest-machine-guide/releases/latest
 
 ## Table of Contents
 - [Why?](#why)
+- [Related Projects](#related-projects)
+- [Documentation](#documentation)
 - [Host Optimizations](#host-optimizations)
 - [Guest Optimizations](#guest-optimizations)
 - [Guest XML Layout](#guest-xml-layout)
@@ -24,8 +27,8 @@ Guide for setup of a guest Libvirt/QEMU Virtual Machine (VM). Includes general o
   - [10. QEMU Command Line](#10-qemu-command-line)
   - [11. QEMU Overrides](#11-qemu-overrides)
 - [Benchmarking Guest Performance](#benchmarking-guest-performance)
-- [References](#references)
 - [Contact](#contact)
+- [References](#references)
 
 ## Contents
 ### Why?
@@ -34,6 +37,34 @@ The purpose of this document is to inform a new or returning user how to optimiz
 This document does not serve to replace existing knowledge-bases. If you have any unexpected questions, wish to fact-check, or want to expand your knowledge, then please visit these places!
 
 Copy and paste what you need from here and/or any example XML files, to your Guest XML file.
+
+### Related Projects
+| Project                             | Codeberg          | GitHub          |
+| :---                                | :---:             | :---:           |
+| Deploy VFIO                         | [link][codeberg1] | [link][github1] |
+| Auto X.Org                          | [link][codeberg2] | [link][github2] |
+| Generate Evdev                      | [link][codeberg3] | [link][github3] |
+| **Guest Machine Guide**             | [link][codeberg4] | [link][github4] |
+| Libvirt Hooks                       | [link][codeberg5] | [link][github5] |
+| Power State Virtual Machine Manager | [link][codeberg6] | [link][github6] |
+
+[codeberg1]: https://codeberg.org/portellam/deploy-VFIO
+[github1]:   https://github.com/portellam/deploy-VFIO
+[codeberg2]: https://codeberg.org/portellam/auto-xorg
+[github2]:   https://github.com/portellam/auto-xorg
+[codeberg3]: https://codeberg.org/portellam/generate-evdev
+[github3]:   https://github.com/portellam/generate-evdev
+[codeberg4]: https://codeberg.org/portellam/guest-machine-guide
+[github4]:   https://github.com/portellam/guest-machine-guide
+[codeberg5]: https://codeberg.org/portellam/libvirt-hooks
+[github5]:   https://github.com/portellam/libvirt-hooks
+[codeberg6]: https://codeberg.org/portellam/powerstate-virtmanager
+[github6]:   https://github.com/portellam/powerstate-virtmanager
+
+### Documentation
+- [What is VFIO?](#13)
+- [VFIO Forum](#11)
+- [PCI Passthrough Guide](#9)
 
 ### Host Optimizations
 TODO: add here.
@@ -70,49 +101,59 @@ Below is an *incomplete* layout for building a Guest machine. The lines include 
     - Older 2000s gaming machine:&ensp;`retro_amd_winxp_x86_i440fx_bios_2c4t`
     - Retro 1990s gaming machine:&ensp;`retro_3dfx_win98_x86_i440fx_bios_1c1t`
     - Intel MacOS workstation:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`work_macos_amd_x64_q35_uefi_6c12t`
+
   - Purpose of the Guest (and suggested names):
     - Gaming PC:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`game`
     - Legacy/Retro PC:&ensp;`retro`
     - Server:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;`server`
     - Workstation PC:&ensp;&ensp;`work`
     - etc.
+
   - Vendor name of the Video device:
     - AMD:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`amd`
     - Intel:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`intel`
     - NVIDIA:&ensp;&ensp;&ensp;&nbsp;`nvidia`
     - emulated:&ensp;`virtgpu`
+
     - non-mainstream or legacy:
       - 3DFX:&ensp;`3dfx`.
+
   - Short name of the Operating System (OS):
     - Apple Macintosh:&ensp;&ensp;&ensp;`macos`
     - Linux:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;`arch`, `debian`, `redhat`, `ubuntu`
     - Microsoft Windows:&ensp;`win98`, `winxp`, `win10`
     - etc.
-  - Short name of the CPU architecture<sup>[ref](#cpu-architecture)</sup>:
-    - AMD/Intel 32-bit:&ensp;`x86`
-    - AMD/Intel 64-bit:&ensp;`x64`
-    - ARM 32-bit:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;`aarch32`
-    - ARM 64-bit:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;`aarch64`
+
+  - Short name of the CPU architecture:
+    - AMD/Intel 32-bit:&ensp;[`x86`](#15)
+    - AMD/Intel 64-bit:&ensp;[`x64`](#14)
+    - ARM 32-bit:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;[`aarch32`](#2)
+    - ARM 64-bit:&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;[`aarch64`](#3)
     - etc.
-  - Virtualized chipset<sup>[ref](#chipset)</sup>:
-    - I440FX:&ensp;`i440fx`
+
+  - Virtualized chipset:
+    - I440FX:&ensp;[`i440fx`](#6)
       - Emulated, older chipset by Intel.
       - Does support legacy Guests (example: Windows NT 5 and before, XP/2000, 9x).
       - PCI bus only; expansion devices will exist on a PCI topology.
       - Will accept PCIe devices.
-    - Q35:&ensp;&ensp;&ensp;&nbsp;`q35`
+
+    - Q35:&ensp;&ensp;&ensp;&nbsp;[`q35`](#10)
       - Virtual, newer platform.
       - Native PCIe bus; expansion devices will exist on a PCIe topology.
       - Does not support legacy Guests.
-  - Firmware<sup>[ref](#firmware)</sup>:
-    - BIOS:&ensp;`bios`
-    - UEFI:&nbsp;&ensp;`uefi`
+
+  - Firmware:
+    - BIOS:&ensp;[`bios`](#4)
+    - UEFI:&nbsp;&ensp;[`uefi`](#12)
+
   - Short-hand of Core topology:&ensp;`4c8t`
     - Given the amount of physical cores (example: 4).
     - Given the amount of logical threads per core (2 * 4 = 8).
 
 #### 3. Memory
 To gather information of system memory, execute: `free --kibi --total --wide`
+For more information on this topic, click [here](#1).
 
 | `<memory>` Tag | Attribute | Value    | Description                                                       |
 | -------------- | --------- | -------- | ----------------------------------------------------------------- |
@@ -128,7 +169,7 @@ To gather information of system memory, execute: `free --kibi --total --wide`
 | --------------------- | --------- | ----------- | ----------------------------------------------------------------- |
 | `<allocation/>`       | `mode`    | `immediate` | Specifies how memory allocation is performed.                     |
 | `<discard/>`          | none      | none        | TODO: define, what is this?                                                   |
-| `<hugepages/>`[<sup>1</sup>](#1-hugepages)       | none      | none        | Enable Huge memory pages.                                         |
+| [`<hugepages/>`](#5)  | none      | none        | Enable Huge memory pages.                                         |
 | `<nosharepages/>`     | none      | none        | Prevents the Host from merging the same memory used among Guests. |
 
 ##### 3.a. `<hugepages/>`
@@ -136,6 +177,8 @@ To gather information of system memory, execute: `free --kibi --total --wide`
 - **Huge:** Memory page size greater than 4K bytes (2M or 1G bytes). The greater the size, the lower the Host overhead.
 - Dynamic *Host* memory page allocation is more flexible, but will require defragmentation before use as *Guest* memory pages (before a Guest machine may start).
 - **Warning:** If the specified *Guest* memory pages exceeds the allocated *Host* memory pages, then the Guest machine will fail to start.
+
+For more information on this topic, click [here](#5).
 
 #### 4. CPU Topology (1 / 2)
 To gather information about your CPU, execute: `lscpu | grep --extended-regexp --ignore-case "per core|per socket|socket"`
@@ -297,6 +340,7 @@ TODO: make the following inline XML into chart, describe each feature.
 ```
 
 #### 9. Devices
+For more information on this topic, click [here](#8).
 
 TODO: make the following inline XML into chart, describe each feature???
 ```xml
@@ -359,36 +403,76 @@ TODO: make the following inline XML into chart, describe each feature.
 ### Benchmarking Guest Performance
 TODO: add here.
 
-### References
-#### 1. Chipset
-&ensp;<sub>I440FX **| [Wikipedia](https://en.wikipedia.org/wiki/Intel_440FX) | [QEMU documentation](https://www.qemu.org/docs/master/system/i386/pc.html)**</sub>
-
-&ensp;<sub>PCI vs PCIe **|** **[RedHat documentation](https://wiki.qemu.org/images/f/f6/PCIvsPCIe.pdf)**</sub>
-
-&ensp;<sub>Q35 **|** **[RedHat documentation](https://wiki.qemu.org/images/4/4e/Q35.pdf)**</sub>
-
-#### 2. CPU architecture
-&ensp;<sub>AArch32 **|** **[Wikipedia](https://en.wikipedia.org/wiki/ARM_architecture_family#AArch32)**</sub>
-
-&ensp;<sub>AArch64 **|** **[Wikipedia](https://en.wikipedia.org/wiki/AArch64)**</sub>
-
-&ensp;<sub>x86 **|** **[Wikipedia](https://en.wikipedia.org/wiki/X86)**</sub>
-
-&ensp;<sub>x64 **|** **[Wikipedia](https://en.wikipedia.org/wiki/X64)**</sub>
-
-#### 3. Firmware
-&ensp;<sub>BIOS **|** **[Wikipedia](https://en.wikipedia.org/wiki/BIOS)**</sub>
-
-&ensp;<sub>UEFI **|** **[Wikipedia](https://en.wikipedia.org/wiki/UEFI)**</sub>
-
-#### 4. Hugepages
-&ensp;<sub>Huge memory pages **| [Arch Wiki](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Huge_memory_pages) | [Debian Wiki](https://wiki.debian.org/Hugepages)**</sub>
-
-#### 5. Memory backing
-&ensp;<sub>Memory Tuning on Virtual Machines **| [RedHat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_tuning_and_optimization_guide/sect-virtualization_tuning_optimization_guide-memory-tuning)**</sub>
-
 ### Contact
-Do you need help? Find any information to be inadequate? Notice any dead links? Please contact by [raising an issue](https://github.com/portellam/guest-machine-guide/issues) with the project itself.
+Do you need help? Please visit the **Issues page** ([Codeberg][codeberg-issues],
+[GitHub][github-issues]).
+
+[codeberg-issues]: https://codeberg.org/portellam/auto-xorg/issues
+[github-issues]:   https://github.com/portellam/auto-xorg/issues
+
+### References
+#### 1.
+**8.2. Memory Tuning on Virtual Machines Red Hat Enterprise Linux 7**. Red Hat
+Customer Portal. Accessed June 15, 2024.
+<sup>https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_tuning_and_optimization_guide/sect-virtualization_tuning_optimization_guide-memory-tuning.</sup>
+
+#### 2.
+**AARCH64**. Wikipedia, May 30, 2024.
+<sup>https://en.wikipedia.org/wiki/AArch64.</sup>
+
+#### 3.
+**ARM Architecture Family**. Wikipedia, May 31, 2024.
+<sup>https://en.wikipedia.org/wiki/ARM_architecture_family#AArch32.</sup>
+
+#### 4.
+**BIOS**. Wikipedia, June 7, 2024.
+<sup>https://en.wikipedia.org/wiki/BIOS.</sup>
+
+#### 5.
+**Hugepages**. Hugepages - Debian Wiki. Accessed June 15, 2024.
+<sup>https://wiki.debian.org/Hugepages.</sup>
+
+#### 6.
+**I440fx PC (PC-I440fx, PC)**. i440fx PC (pc-i440fx, pc) - QEMU documentation.
+Accessed June 15, 2024.
+<sup>https://www.qemu.org/docs/master/system/i386/pc.html.</sup>
+
+#### 7.
+**Intel 440FX**. Wikipedia, August 20, 2023.
+<sup>https://en.wikipedia.org/wiki/Intel_440FX.</sup>
+
+#### 8.
+**PCI Overview.** QEMU Wiki. Accessed June 15, 2024.
+<sup>https://wiki.qemu.org/images/f/f6/PCIvsPCIe.pdf.</sup>
+
+#### 9.
+**PCI passthrough via OVMF**. ArchWiki. Accessed June 14, 2024.
+<sup>https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF.</sup>
+
+#### 10.
+**Q35.** QEMU Wiki. Accessed June 15, 2024.
+<sup>https://wiki.qemu.org/images/4/4e/Q35.pdf.</sup>
+
+#### 11.
+**r/VFIO**. Accessed June 14, 2024.
+<sup>https://www.reddit.com/r/VFIO/.</sup>
+
+#### 12.
+**UEFI**. Wikipedia, June 7, 2024.
+<sup>https://en.wikipedia.org/wiki/UEFI.</sup>
+
+#### 13.
+**VFIO - ‘Virtual Function I/O’ - The Linux Kernel Documentation**.
+The linux kernel. Accessed June 14, 2024.
+<sup>https://www.kernel.org/doc/html/latest/driver-api/vfio.html.</sup>
+
+#### 14.
+**X64**. Wikipedia, July 27, 2023.
+<sup>https://en.wikipedia.org/wiki/X64.</sup>
+
+#### 15.
+**X86**. Wikipedia, May 18, 2024.
+<sup>https://en.wikipedia.org/wiki/X86.</sup>
 
 ## TODO:
 - [x] add About.
