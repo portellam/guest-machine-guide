@@ -47,7 +47,8 @@ Copy and paste what you need from here and/or any example XML files, to your Gue
 ### Documentation
 - [What is VFIO?](#13)
 - [VFIO Forum](#11)
-- [PCI Passthrough Guide](#9)
+- [Hardware-Passthrough Guide](#9)
+- [Virtual Machine XML Format Guide](#16)
 
 ### Host Optimizations
 TODO: add here.
@@ -456,6 +457,10 @@ The linux kernel. Accessed June 14, 2024.
 #### 15.
 **X86**. Wikipedia, May 18, 2024.
 <sup>https://en.wikipedia.org/wiki/X86.</sup>
+
+#### 16.
+**libvirt/libvirt - XML Design Format** GitHub. Accessed June 18, 2024.
+<sup>https://github.com/libvirt/libvirt/blob/master/docs/formatdomain.rst.</sup>
 
 ## TODO:
 - [x] add About.
