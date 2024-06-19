@@ -1,6 +1,8 @@
 # Guest Machine Guide
 ### Status: Work-In-Progress
-Guide for setup of a guest Libvirt/QEMU Virtual Machine (VM). Includes general overview and references, and optimizations for Windows guests and hardware-passthrough (VFIO).
+Guide for setup of a guest Libvirt/QEMU Virtual Machine (VM). Includes general
+overview and references, and optimizations for Windows guests and
+hardware-passthrough (VFIO).
 
 ## Table of Contents
 - [Why?](#why)
@@ -15,11 +17,15 @@ Guide for setup of a guest Libvirt/QEMU Virtual Machine (VM). Includes general o
 
 ## Contents
 ### Why?
-The purpose of this document is to inform a new or returning user how to optimize a Guest machine, without demanding greater research and time.
+The purpose of this document is to inform a new or returning user how to
+optimize a Guest machine, without demanding greater research and time.
 
-This document does not serve to replace existing knowledge-bases. If you have any unexpected questions, wish to fact-check, or want to expand your knowledge, then please visit these places!
+This document does not serve to replace existing knowledge-bases. If you have
+any unexpected questions, wish to fact-check, or want to expand your knowledge,
+then please visit these places!
 
-Copy and paste what you need from here and/or any example XML files, to your Guest XML file.
+Copy and paste what you need from here and/or any example XML files, to your
+Guest XML file.
 
 ### Related Projects
 | Project                             | Codeberg          | GitHub          |
@@ -57,7 +63,9 @@ TODO: add here.
 TODO: add here.
 
 ### Guest XML Layout
-Below is an *incomplete* layout for building a Guest machine. The lines include additional features, of which are absent when creating a Guest XML (with the `virsh` CLI command or `virt-manager` GUI application).
+Below is an *incomplete* layout for building a Guest machine. The lines include
+additional features, of which are absent when creating a Guest XML (with the
+`virsh` CLI command or `virt-manager` GUI application).
 
 #### 1. Syntax
 ```xml
@@ -75,11 +83,13 @@ Below is an *incomplete* layout for building a Guest machine. The lines include 
 | `<name/>`[<sup>1</sup>](#21a-name-best-practice)          | none         | text                                           | Name of the Guest.                                 |
 
 ##### 2.a. `<name/>` Best practice:
-**Note:** The following formatting examples are a personal preference of the Author.
+**Note:** The following formatting examples are a personal preference of the
+Author.
 
 **Format:** `purpose`**_**`vendor`\***_**`operating system`**_**`architecture`**_**`chipset`**_**`firmware`**_**`topology`
 
-**\*** Optional, if Host machine contains two (2) or more video devices (GPU/VGA).
+**\*** Optional, if Host machine contains two (2) or more video devices
+(GPU/VGA).
   - Example systems and names:
     - Modern gaming machine:&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;`game_nvidia_win10_x64_q35_uefi_6c12t`
     - Older 2000s gaming machine:&ensp;`retro_amd_winxp_x86_i440fx_bios_2c4t`
@@ -158,9 +168,12 @@ For more information on this topic, click [here](#1).
 
 ##### 3.a. `<hugepages/>`
 - Static allocation of *Host* memory pages into *Guest* memory pages.
-- **Huge:** Memory page size greater than 4K bytes (2M or 1G bytes). The greater the size, the lower the Host overhead.
-- Dynamic *Host* memory page allocation is more flexible, but will require defragmentation before use as *Guest* memory pages (before a Guest machine may start).
-- **Warning:** If the specified *Guest* memory pages exceeds the allocated *Host* memory pages, then the Guest machine will fail to start.
+- **Huge:** Memory page size greater than 4K bytes (2M or 1G bytes). The greater
+the size, the lower the Host overhead.
+- Dynamic *Host* memory page allocation is more flexible, but will require
+defragmentation before use as *Guest* memory pages (before a Guest machine may start).
+- **Warning:** If the specified *Guest* memory pages exceeds the allocated
+*Host* memory pages, then the Guest machine will fail to start.
 
 For more information on this topic, click [here](#5).
 
