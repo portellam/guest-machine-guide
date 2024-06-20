@@ -51,8 +51,8 @@ Guest XML file.
 [github6]:   https://github.com/portellam/powerstate-virtmanager
 
 ### Documentation
-- [What is VFIO?](#13)
-- [VFIO Forum](#11)
+- [What is VFIO?](#12)
+- [VFIO Discussion and Support](#13)
 - [Hardware-Passthrough Guide](#9)
 - [Virtual Machine XML Format Guide](#16)
 
@@ -139,7 +139,7 @@ Author.
 
   - Firmware:
     - BIOS:&ensp;[`bios`](#4)
-    - UEFI:&ensp;&nbsp;[`uefi`](#12)
+    - UEFI:&ensp;&nbsp;[`uefi`](#11)
 
   - Short-hand of Core topology:&ensp;`4c8t`
     - Given the amount of physical cores (example: 4).
@@ -451,17 +451,17 @@ Accessed June 15, 2024.
 <sup>https://wiki.qemu.org/images/4/4e/Q35.pdf.</sup>
 
 #### 11.
-**r/VFIO**. Accessed June 14, 2024.
-<sup>https://www.reddit.com/r/VFIO/.</sup>
-
-#### 12.
 **UEFI**. Wikipedia, June 7, 2024.
 <sup>https://en.wikipedia.org/wiki/UEFI.</sup>
 
-#### 13.
+#### 12.
 **VFIO - ‘Virtual Function I/O’ - The Linux Kernel Documentation**.
 The linux kernel. Accessed June 14, 2024.
 <sup>https://www.kernel.org/doc/html/latest/driver-api/vfio.html.</sup>
+
+#### 13.
+**VFIO Discussion and Support**. Reddit. Accessed June 14, 2024.
+<sup>https://www.reddit.com/r/VFIO/.</sup>
 
 #### 14.
 **X64**. Wikipedia, July 27, 2023.
