@@ -1,22 +1,35 @@
 # Guest Machine Guide
-### Status: Work-In-Progress
+### Pre-Final Rev. 1
 Guide for setup of a guest Libvirt/QEMU Virtual Machine (VM). Includes general
 overview and references, and optimizations for Windows guests and
 hardware-passthrough (VFIO).
 
+## Status: Work-In-Progress
+
 ## Table of Contents
-- [Why?](#why)
-- [Related Projects](#related-projects)
-- [Documentation](#documentation)
-- [Host Optimizations](#host-optimizations)
-- [Guest Optimizations](#guest-optimizations)
-- [Guest XML Layout](#guest-xml-layout)
-- [Benchmarking Guest Performance](#benchmarking-guest-performance)
-- [Contact](#contact)
-- [References](#references)
+- [1. Why?](#1-why)
+- [2. Related Projects](#2-related-projects)
+- [3. Documentation](#3-documentation)
+- [4. Host Optimizations](#4-host-optimizations)
+- [5. Guest Optimizations](#5-guest-optimizations)
+- [6. Guest XML Layout](#6-guest-xml-layout)
+    - [6.1. Syntax](#61-syntax)
+    - [6.2. First Lines in XML](#62-first-lines-in-xml)
+    - [6.3. Memory](#63-memory)
+    - [6.4. CPU Topology (1 / 2)](#64-cpu-topology-1--2)
+    - [6.5. System Information Spoofing](#65-system-information-spoofing)
+    - [6.6. Features](#66-features)
+    - [6.7. CPU Topology (2 / 2)](#67-cpu-topology-2--2)
+    - [6.8. Power Management](#68-power-management)
+    - [6.9. Devices](#69-devices)
+    - [6.10. QEMU Command Line](#610-qemu-command-line)
+    - [6.11. QEMU Overrides](#611-qemu-overrides)
+- [7. Benchmarking Guest Performance](#7-benchmarking-guest-performance)
+- [8. Contact](#8-contact)
+- [9. References](#9-references)
 
 ## Contents
-### Why?
+### 1. Why?
 The purpose of this document is to inform a new or returning user how to
 optimize a Guest machine, without demanding greater research and time.
 
@@ -27,7 +40,7 @@ then please visit these places!
 Copy and paste what you need from here and/or any example XML files, to your
 Guest XML file.
 
-### Related Projects
+### 2. Related Projects
 | Project                             | Codeberg          | GitHub          |
 | :---                                | :---:             | :---:           |
 | Deploy VFIO                         | [link][codeberg1] | [link][github1] |
@@ -50,31 +63,31 @@ Guest XML file.
 [codeberg6]: https://codeberg.org/portellam/powerstate-virtmanager
 [github6]:   https://github.com/portellam/powerstate-virtmanager
 
-### Documentation
+### 3. Documentation
 - [What is VFIO?](#12)
 - [VFIO Discussion and Support](#13)
 - [Hardware-Passthrough Guide](#9)
 - [Virtual Machine XML Format Guide](#16)
 
-### Host Optimizations
+### 4. Host Optimizations
 TODO: add here.
 
-### Guest Optimizations
+### 5. Guest Optimizations
 TODO: add here.
 
-### Guest XML Layout
+### 6. Guest XML Layout
 Below is an *incomplete* layout for building a Guest machine. The lines include
 additional features, of which are absent when creating a Guest XML (with the
 `virsh` CLI command or `virt-manager` GUI application).
 
-#### 1. Syntax
+#### 6.1. Syntax
 ```xml
 <parent_tag_name attribute_name="attribute_value">
   <child_tag_name>child_tag_value</child_tag_name>
 </parent_tag_name>
 ```
 
-#### 2. First Lines in XML
+#### 6.2. First Lines in XML
 
 | `<domain>` Tag     | Attribute    | Value                                          | Description                                        |
 | ------------------ | ------------ | ---------------------------------------------- | -------------------------------------------------- |
@@ -145,7 +158,7 @@ Author.
     - Given the amount of physical cores (example: 4).
     - Given the amount of logical threads per core (2 * 4 = 8).
 
-#### 3. Memory
+#### 6.3. Memory
 To gather information of system memory, execute: `free --kibi --total --wide`
 For more information on this topic, click [here](#1).
 
@@ -177,7 +190,7 @@ defragmentation before use as *Guest* memory pages (before a Guest machine may s
 
 For more information on this topic, click [here](#5).
 
-#### 4. CPU Topology (1 / 2)
+#### 6.4. CPU Topology (1 / 2)
 To gather information about your CPU, execute: `lscpu | grep --extended-regexp --ignore-case "per core|per socket|socket"`
 
 | `<vcpu>` Tag | Attribute   | Value      | Description                                                     |
@@ -226,7 +239,7 @@ To gather information about your CPU, execute: `lscpu | grep --extended-regexp -
   </cputune>
 ```
 
-#### 5. System Information Spoofing
+#### 6.5. System Information Spoofing
 To gather information about your BIOS, execute:
 
 &ensp;`sudo dmidecode --type bios | grep --extended-regexp --ignore-case "vendor|version|release date"`
@@ -254,7 +267,7 @@ To gather information about your system, execute:
   </sysinfo>
 ```
 
-#### 6. Features
+#### 6.6. Features
 
 TODO: make the following inline XML into chart, describe each feature.
 
@@ -287,7 +300,7 @@ TODO: make the following inline XML into chart, describe each feature.
   </features>
 ```
 
-#### 7. CPU Topology (2 / 2)
+#### 6.7. CPU Topology (2 / 2)
 To gather information about your CPU, execute: `lscpu | grep --extended-regexp --ignore-case "per core|per socket|socket"`
 
 ##### 7.a. Example output:
@@ -327,7 +340,7 @@ TODO: make the following inline XML into chart, describe each feature.
 |              | `present`    | `"yes"`              | TODO: add here.                                                 |
 |              | `mode`       | `"native"`           | TODO: add here.                                                 |
 
-#### 8. Power Management
+#### 6.8. Power Management
 ```xml
   <!-- Power Management -->
   <pm>
@@ -336,7 +349,7 @@ TODO: make the following inline XML into chart, describe each feature.
   </pm>
 ```
 
-#### 9. Devices
+#### 6.9. Devices
 For more information on this topic, click [here](#8).
 
 TODO: make the following inline XML into chart, describe each feature???
@@ -380,7 +393,7 @@ TODO: make this inline XML?
   - Scream
   - ???
 
-#### 10. QEMU Command Line
+#### 6.10. QEMU Command Line
 
 TODO: make the following inline XML into chart, describe each feature.
   - Evdev
@@ -389,7 +402,7 @@ TODO: make the following inline XML into chart, describe each feature.
   <qemu:commandline>...</qemu:commandline>  <!-- Add Evdev here -->
 ```
 
-#### 11. QEMU Overrides
+#### 6.11. QEMU Overrides
 
 TODO: make the following inline XML into chart, describe each feature.
 
@@ -397,17 +410,17 @@ TODO: make the following inline XML into chart, describe each feature.
   <qemu:override>...</qemu:override>
 ```
 
-### Benchmarking Guest Performance
+### 7. Benchmarking Guest Performance
 TODO: add here.
 
-### Contact
+### 8. Contact
 Do you need help? Please visit the **Issues page** ([Codeberg][codeberg-issues],
 [GitHub][github-issues]).
 
 [codeberg-issues]: https://codeberg.org/portellam/auto-xorg/issues
 [github-issues]:   https://github.com/portellam/auto-xorg/issues
 
-### References
+### 9. References
 #### 1.
 **8.2. Memory Tuning on Virtual Machines Red Hat Enterprise Linux 7**. Red Hat
 Customer Portal. Accessed June 15, 2024.
@@ -472,7 +485,7 @@ The linux kernel. Accessed June 14, 2024.
 <sup>https://en.wikipedia.org/wiki/X86.</sup>
 
 #### 16.
-**libvirt/libvirt - XML Design Format** GitHub. Accessed June 18, 2024.
+**XML Design Format** GitHub - libvirt/libvirt. Accessed June 18, 2024.
 <sup>https://github.com/libvirt/libvirt/blob/master/docs/formatdomain.rst.</sup>
 
 ## TODO:
@@ -488,6 +501,8 @@ The linux kernel. Accessed June 14, 2024.
     - [ ] cpu topology (2/2)
     - [ ] power management
     - [ ] qemu command line
+      - [ ] evdev macro
+      - [ ] gpu stuff?
     - [ ] qemu overrides
   - [ ] host optimizations
   - [ ] guest optimizations
