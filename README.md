@@ -452,7 +452,7 @@ Accessed June 15, 2024.
 <sup>https://en.wikipedia.org/wiki/Intel_440FX.</sup>
 
 #### 8.
-**PCI Overview.** QEMU Wiki. Accessed June 15, 2024.
+**PCI Overview**. QEMU Wiki. Accessed June 15, 2024.
 <sup>https://wiki.qemu.org/images/f/f6/PCIvsPCIe.pdf.</sup>
 
 #### 9.
@@ -460,7 +460,7 @@ Accessed June 15, 2024.
 <sup>https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF.</sup>
 
 #### 10.
-**Q35.** QEMU Wiki. Accessed June 15, 2024.
+**Q35**. QEMU Wiki. Accessed June 15, 2024.
 <sup>https://wiki.qemu.org/images/4/4e/Q35.pdf.</sup>
 
 #### 11.
@@ -485,7 +485,7 @@ The linux kernel. Accessed June 14, 2024.
 <sup>https://en.wikipedia.org/wiki/X86.</sup>
 
 #### 16.
-**XML Design Format** GitHub - libvirt/libvirt. Accessed June 18, 2024.
+**XML Design Format**. GitHub - libvirt/libvirt. Accessed June 18, 2024.
 <sup>https://github.com/libvirt/libvirt/blob/master/docs/formatdomain.rst.</sup>
 
 ## TODO:
