@@ -1,5 +1,5 @@
 # Guest Machine Guide
-### Pre-Final Rev. 1
+### Draft Rev. 1
 Guide for setup of a guest Libvirt/QEMU Virtual Machine (VM). Includes general
 overview and references, and optimizations for Windows guests and
 hardware-passthrough (VFIO).
