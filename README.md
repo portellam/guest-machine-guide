@@ -1,10 +1,13 @@
 # Guest Machine Guide
-### Draft Rev. 1
+### In Development
 Guide for setup of a guest Libvirt/QEMU Virtual Machine (VM). Includes general
 overview and references, and optimizations for Windows guests and
 hardware-passthrough (VFIO).
 
-## Status: Work-In-Progress
+#### View this repository on [Codeberg][01], [GitHub][02].
+[01]: https://codeberg.org/portellam/auto-xorg
+[02]: https://github.com/portellam/auto-xorg
+##
 
 ## Table of Contents
 - [1. Why?](#1-why)
@@ -41,33 +44,17 @@ Copy and paste what you need from here and/or any example XML files, to your
 Guest XML file.
 
 ### 2. Related Projects
-| Project                             | Codeberg          | GitHub          |
-| :---                                | :---:             | :---:           |
-| Deploy VFIO                         | [link][codeberg1] | [link][github1] |
-| Auto X.Org                          | [link][codeberg2] | [link][github2] |
-| Generate Evdev                      | [link][codeberg3] | [link][github3] |
-| **Guest Machine Guide**             | [link][codeberg4] | [link][github4] |
-| Libvirt Hooks                       | [link][codeberg5] | [link][github5] |
-| Power State Virtual Machine Manager | [link][codeberg6] | [link][github6] |
+To view other relevant projects, visit [Codeberg][21]
+or [GitHub][22].
 
-[codeberg1]: https://codeberg.org/portellam/deploy-VFIO
-[github1]:   https://github.com/portellam/deploy-VFIO
-[codeberg2]: https://codeberg.org/portellam/auto-xorg
-[github2]:   https://github.com/portellam/auto-xorg
-[codeberg3]: https://codeberg.org/portellam/generate-evdev
-[github3]:   https://github.com/portellam/generate-evdev
-[codeberg4]: https://codeberg.org/portellam/guest-machine-guide
-[github4]:   https://github.com/portellam/guest-machine-guide
-[codeberg5]: https://codeberg.org/portellam/libvirt-hooks
-[github5]:   https://github.com/portellam/libvirt-hooks
-[codeberg6]: https://codeberg.org/portellam/powerstate-virtmanager
-[github6]:   https://github.com/portellam/powerstate-virtmanager
+[21]: https://codeberg.org/portellam/guest-machine-guide
+[22]: https://github.com/portellam/guest-machine-guide
 
 ### 3. Documentation
-- [What is VFIO?](#12)
-- [VFIO Discussion and Support](#13)
-- [Hardware-Passthrough Guide](#9)
-- [Virtual Machine XML Format Guide](#16)
+- What is VFIO?[<sup>[12]</sup>](#12)
+- VFIO Discussion and Support[<sup>[13]</sup>](#13)
+- Hardware-Passthrough Guide[<sup>[9]</sup>](#9)
+- Virtual Machine XML Format Guide[<sup>[16]</sup>](#16)
 
 ### 4. Host Optimizations
 TODO: add here.
@@ -360,7 +347,7 @@ TODO: make the following inline XML into chart, describe each feature???
   </devices>
 ```
 
-##### 9.a. Emulated Devices
+##### 6.9.a. Emulated Devices
 
 TODO: make this inline XML?
 - QEMU
@@ -370,7 +357,7 @@ TODO: make this inline XML?
 
 lorem ipsum
 
-##### 9.b. Real/Passthrough Hardware Devices
+##### 6.9.b. Real/Passthrough Hardware Devices
 TODO: make this inline XML?
 
   - AMD
@@ -386,7 +373,7 @@ TODO: make this inline XML?
       - Boot bug (Solution: Use known-good copy of given GPU's video BIOS or VBIOS).
       - TODO: add references, programs used, instructions, and XML here.
 
-##### 9.c. Memory Devices
+##### 6.9.c. Memory Devices
 
 TODO: make this inline XML?
   - Looking Glass
@@ -414,79 +401,94 @@ TODO: make the following inline XML into chart, describe each feature.
 TODO: add here.
 
 ### 8. Contact
-Do you need help? Please visit the **Issues page** ([Codeberg][codeberg-issues],
-[GitHub][github-issues]).
+Wish to recommend a project? Do you need help? Please visit the [Issues][81] page.
 
-[codeberg-issues]: https://codeberg.org/portellam/auto-xorg/issues
-[github-issues]:   https://github.com/portellam/auto-xorg/issues
+[81]: https://github.com/portellam/guest-machine-guide/issues
 
 ### 9. References
 #### 1.
-**8.2. Memory Tuning on Virtual Machines Red Hat Enterprise Linux 7**. Red Hat
-Customer Portal. Accessed June 15, 2024.
-<sup>https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_tuning_and_optimization_guide/sect-virtualization_tuning_optimization_guide-memory-tuning.</sup>
+&nbsp;&nbsp;**8.2. Memory Tuning on Virtual Machines Red Hat Enterprise Linux 7**.
+Red Hat Customer Portal. Accessed June 15, 2024.
+
+&nbsp;&nbsp;&nbsp;&nbsp;<sup>https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_tuning_and_optimization_guide/sect-virtualization_tuning_optimization_guide-memory-tuning.</sup>
 
 #### 2.
-**AARCH64**. Wikipedia, May 30, 2024.
-<sup>https://en.wikipedia.org/wiki/AArch64.</sup>
+&nbsp;&nbsp;**AARCH64**. Wikipedia, May 30, 2024.
+
+&nbsp;&nbsp;&nbsp;&nbsp;<sup>https://en.wikipedia.org/wiki/AArch64.</sup>
 
 #### 3.
-**ARM Architecture Family**. Wikipedia, May 31, 2024.
-<sup>https://en.wikipedia.org/wiki/ARM_architecture_family#AArch32.</sup>
+&nbsp;&nbsp;**ARM Architecture Family**. Wikipedia, May 31, 2024.
+
+&nbsp;&nbsp;&nbsp;&nbsp;<sup>https://en.wikipedia.org/wiki/ARM_architecture_family#AArch32.</sup>
 
 #### 4.
-**BIOS**. Wikipedia, June 7, 2024.
-<sup>https://en.wikipedia.org/wiki/BIOS.</sup>
+&nbsp;&nbsp;**BIOS**. Wikipedia, June 7, 2024.
+
+&nbsp;&nbsp;&nbsp;&nbsp;<sup>https://en.wikipedia.org/wiki/BIOS.</sup>
 
 #### 5.
-**Hugepages**. Hugepages - Debian Wiki. Accessed June 15, 2024.
-<sup>https://wiki.debian.org/Hugepages.</sup>
+&nbsp;&nbsp;**Hugepages**. Hugepages - Debian Wiki. Accessed June 15, 2024.
+
+&nbsp;&nbsp;&nbsp;&nbsp;<sup>https://wiki.debian.org/Hugepages.</sup>
 
 #### 6.
-**I440fx PC (PC-I440fx, PC)**. i440fx PC (pc-i440fx, pc) - QEMU documentation.
+&nbsp;&nbsp;**I440fx PC (PC-I440fx, PC)**. i440fx PC (pc-i440fx, pc) - QEMU documentation.
 Accessed June 15, 2024.
-<sup>https://www.qemu.org/docs/master/system/i386/pc.html.</sup>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<sup>https://www.qemu.org/docs/master/system/i386/pc.html.</sup>
 
 #### 7.
-**Intel 440FX**. Wikipedia, August 20, 2023.
-<sup>https://en.wikipedia.org/wiki/Intel_440FX.</sup>
+&nbsp;&nbsp;**Intel 440FX**. Wikipedia, August 20, 2023.
+
+&nbsp;&nbsp;&nbsp;&nbsp;<sup>https://en.wikipedia.org/wiki/Intel_440FX.</sup>
 
 #### 8.
-**PCI Overview**. QEMU Wiki. Accessed June 15, 2024.
-<sup>https://wiki.qemu.org/images/f/f6/PCIvsPCIe.pdf.</sup>
+&nbsp;&nbsp;**PCI Overview**. QEMU Wiki. Accessed June 15, 2024.
+
+&nbsp;&nbsp;&nbsp;&nbsp;<sup>https://wiki.qemu.org/images/f/f6/PCIvsPCIe.pdf.</sup>
 
 #### 9.
-**PCI passthrough via OVMF**. ArchWiki. Accessed June 14, 2024.
-<sup>https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF.</sup>
+&nbsp;&nbsp;**PCI passthrough via OVMF**. ArchWiki. Accessed June 14, 2024.
+
+&nbsp;&nbsp;&nbsp;&nbsp;<sup>https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF.</sup>
 
 #### 10.
-**Q35**. QEMU Wiki. Accessed June 15, 2024.
-<sup>https://wiki.qemu.org/images/4/4e/Q35.pdf.</sup>
+&nbsp;&nbsp;**Q35**. QEMU Wiki. Accessed June 15, 2024.
+
+&nbsp;&nbsp;&nbsp;&nbsp;<sup>https://wiki.qemu.org/images/4/4e/Q35.pdf.</sup>
 
 #### 11.
-**UEFI**. Wikipedia, June 7, 2024.
-<sup>https://en.wikipedia.org/wiki/UEFI.</sup>
+&nbsp;&nbsp;**UEFI**. Wikipedia, June 7, 2024.
+
+&nbsp;&nbsp;&nbsp;&nbsp;<sup>https://en.wikipedia.org/wiki/UEFI.</sup>
 
 #### 12.
-**VFIO - ‘Virtual Function I/O’ - The Linux Kernel Documentation**.
+&nbsp;&nbsp;**VFIO - ‘Virtual Function I/O’ - The Linux Kernel Documentation**.
 The linux kernel. Accessed June 14, 2024.
-<sup>https://www.kernel.org/doc/html/latest/driver-api/vfio.html.</sup>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<sup>https://www.kernel.org/doc/html/latest/driver-api/vfio.html.</sup>
 
 #### 13.
-**VFIO Discussion and Support**. Reddit. Accessed June 14, 2024.
-<sup>https://www.reddit.com/r/VFIO/.</sup>
+&nbsp;&nbsp;**VFIO Discussion and Support**. Reddit. Accessed June 14, 2024.
+
+&nbsp;&nbsp;&nbsp;&nbsp;<sup>https://www.reddit.com/r/VFIO/.</sup>
 
 #### 14.
-**X64**. Wikipedia, July 27, 2023.
-<sup>https://en.wikipedia.org/wiki/X64.</sup>
+&nbsp;&nbsp;**X64**. Wikipedia, July 27, 2023.
+
+&nbsp;&nbsp;&nbsp;&nbsp;<sup>https://en.wikipedia.org/wiki/X64.</sup>
 
 #### 15.
-**X86**. Wikipedia, May 18, 2024.
-<sup>https://en.wikipedia.org/wiki/X86.</sup>
+&nbsp;&nbsp;**X86**. Wikipedia, May 18, 2024.
+
+&nbsp;&nbsp;&nbsp;&nbsp;<sup>https://en.wikipedia.org/wiki/X86.</sup>
 
 #### 16.
-**XML Design Format**. GitHub - libvirt/libvirt. Accessed June 18, 2024.
-<sup>https://github.com/libvirt/libvirt/blob/master/docs/formatdomain.rst.</sup>
+&nbsp;&nbsp;**XML Design Format**. GitHub - libvirt/libvirt.
+Accessed June 18, 2024.
+
+&nbsp;&nbsp;&nbsp;&nbsp;<sup>https://github.com/libvirt/libvirt/blob/master/docs/formatdomain.rst.</sup>
 
 ## TODO:
 - [x] add About.
