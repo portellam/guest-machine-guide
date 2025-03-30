@@ -401,7 +401,7 @@ TODO: make the following inline XML into chart, describe each feature.
 TODO: add here.
 
 ### 8. Contact
-Wish to recommend a project? Do you need help? Please visit the [Issues][81] page.
+Do you need help? Please visit the [Issues][81] page.
 
 [81]: https://github.com/portellam/guest-machine-guide/issues
 
