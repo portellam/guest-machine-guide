@@ -5,8 +5,8 @@ overview and references, and optimizations for Windows guests and
 hardware-passthrough (VFIO).
 
 #### View this repository on [Codeberg][01], [GitHub][02].
-[01]: https://codeberg.org/portellam/auto-xorg
-[02]: https://github.com/portellam/auto-xorg
+[01]: https://codeberg.org/portellam/guest-machine-guide
+[02]: https://github.com/portellam/guest-machine-guide
 ##
 
 ## Table of Contents
