@@ -4,7 +4,7 @@ Guide for setup of a guest Libvirt/QEMU Virtual Machine (VM). Includes general
 overview and references, and optimizations for Windows guests and
 hardware-passthrough (VFIO).
 
-#### View this repository on [Codeberg][01], [GitHub][02].
+#### View this repository on [Codeberg][01] or [GitHub][02].
 [01]: https://codeberg.org/portellam/guest-machine-guide
 [02]: https://github.com/portellam/guest-machine-guide
 ##
